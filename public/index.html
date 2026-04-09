@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skribble Clone</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="landing" class="panel">
+        <h1>Skribble Clone</h1>
+        <input id="nameInput" placeholder="Your name" maxlength="20" />
+        <div class="grid-two">
+          <div>
+            <h3>Create Room</h3>
+            <label>Max players <input id="maxPlayers" type="number" min="2" max="20" value="8" /></label>
+            <label>Rounds <input id="rounds" type="number" min="2" max="10" value="3" /></label>
+            <label>Draw time (sec) <input id="drawTime" type="number" min="15" max="240" value="60" /></label>
+            <label>Word choices <input id="wordChoices" type="number" min="1" max="5" value="3" /></label>
+            <label><input id="hintsEnabled" type="checkbox" checked /> Hints enabled</label>
+            <label><input id="isPrivate" type="checkbox" /> Private room</label>
+            <button id="createRoomBtn">Create room</button>
+          </div>
+          <div>
+            <h3>Join Room</h3>
+            <input id="roomCodeInput" placeholder="Room code" maxlength="6" />
+            <button id="joinRoomBtn">Join by code</button>
+            <h3>Public Rooms</h3>
+            <ul id="publicRooms"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="game" class="hidden">
+        <header class="game-header">
+          <div>
+            <strong>Room:</strong> <span id="roomCodeLabel">-</span>
+            <strong>Round:</strong> <span id="roundLabel">-</span>
+            <strong>Time:</strong> <span id="timeLabel">-</span>
+          </div>
+          <div id="statusLabel">Waiting...</div>
+        </header>
+        <main class="game-layout">
+          <aside class="panel sidebar">
+            <h3>Players</h3>
+            <ul id="playersList"></ul>
+            <button id="startGameBtn" class="hidden">Start game</button>
+          </aside>
+          <section class="panel canvas-panel">
+            <div class="tools">
+              <input id="colorPicker" type="color" value="#000000" />
+              <input id="brushSize" type="range" min="1" max="20" value="4" />
+              <button id="clearCanvasBtn">Clear</button>
+            </div>
+            <canvas id="board" width="860" height="480"></canvas>
+            <div id="hintLabel">Hint: -</div>
+            <div id="wordOptions" class="hidden"></div>
+          </section>
+          <aside class="panel chat-panel">
+            <h3>Chat / Guesses</h3>
+            <div id="messages"></div>
+            <form id="chatForm">
+              <input id="chatInput" placeholder="Type guess or message" maxlength="100" />
+              <button type="submit">Send</button>
+            </form>
+          </aside>
+        </main>
+      </section>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef1f8;
+  color: #222;
+}
+
+#app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.grid-two {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+label {
+  display: block;
+  margin: 8px 0;
+}
+
+input,
+button {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #c9d0e3;
+}
+
+button {
+  cursor: pointer;
+  background: #3d69ff;
+  color: #fff;
+  border: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.game-header {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  gap: 12px;
+}
+
+.canvas-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tools {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#board {
+  border: 2px solid #d4daf0;
+  border-radius: 8px;
+  width: 100%;
+  height: 480px;
+  background: #fff;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+#messages {
+  height: 430px;
+  overflow-y: auto;
+  border: 1px solid #d4daf0;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.msg {
+  margin: 4px 0;
+  word-break: break-word;
+}
+
+.system {
+  color: #2e7d32;
+}
+
+#wordOptions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 1080px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+}

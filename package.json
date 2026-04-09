@@ -1,0 +1,19 @@
+{
+  "name": "skribble.io",
+  "version": "1.0.0",
+  "description": "Multiplayer skribbl clone with Express and Socket.IO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "fix-port": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$listeners = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if ($listeners) { $listeners | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; Write-Host 'Port 3000 cleared'; } else { Write-Host 'Port 3000 already free'; }\"",
+    "start:clean": "npm run fix-port && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}
