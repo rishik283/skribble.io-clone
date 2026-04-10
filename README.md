@@ -62,4 +62,4 @@ Deploy this app on Render/Railway as a Node web service:
 3. Start command: `npm start`
 4. Expose default port (platform sets `PORT`)
 
-Live URL: `ADD_YOUR_DEPLOYED_URL_HERE`
+Live URL: https://skribble-io-clone.onrender.com
